@@ -16,7 +16,13 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+      vaultHost: 'https://127.0.0.1:8200',
+      vaultAPIVersion: 'v1'
+    },
+
+    // contentSecurityPolicy: {
+    //   'connect-src': ["'self'", "https://127.0.0.1:8200"]
+    // }
   };
 
   if (environment === 'development') {
@@ -25,6 +31,11 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.vaultHost = 'http://localhost:1337/127.0.0.1:8200';
+    ENV.contentSecurityPolicy = {
+      'connect-src': ["'self'", "http://localhost:1337"],
+      'script-src': ["'self'", "http://localhost:1337"]
+    };
   }
 
   if (environment === 'test') {
