@@ -1,0 +1,15 @@
+.vault-initializer {
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(center);
+  height: 20em;
+  @include justify-content(center);
+
+  .parameter {
+    padding-bottom: 1em;
+    text-align: center;
+    &__input {
+      width: 100%;
+    }
+  }
+}

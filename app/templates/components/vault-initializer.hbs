@@ -1,0 +1,29 @@
+<form {{action "initializeVault" on="submit"}}>
+  <div class="vault-initializer">
+    <h3>Initialize the Vault</h3>
+
+    <div class="parameter">
+      <label>
+        Secret shares
+        {{input type="number" value=shares class="parameter__input"}}
+      </label>
+    </div>
+
+    <div class="parameter">
+      <label>
+        Secret threshold
+        {{input type="number" value=threshold class="parameter__input"}}
+      </label>
+    </div>
+
+    <div>
+      {{input type="submit" value="Initialize"}}
+    </div>
+
+    {{#if error}}
+      <div class="error">
+        {{error}}
+      </div>
+    {{/if}}
+  </div>
+</form>
