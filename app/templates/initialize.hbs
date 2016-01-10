@@ -1,3 +1,33 @@
 <div>
   {{vault-initializer onInitialize=(action 'didInitialize')}}
+
+
+    <div class='modal' id="key-modal">
+      <div class='modal-fade-screen'>
+        <div class="modal-inner">
+          {{#if keys}}
+            <h1>
+              Unlock Keys and Root Access Token
+            </h1>
+            <div class="modal-intro">
+              Please distribute these keys to senior staff. This information, including the root access token is only shown once.
+            </div>
+            <div class="modal-content">
+
+              {{#each keys.keys as |key index|}}
+                <p>Key {{index}}: {{key}}</p>
+              {{/each}}
+              <p>
+                Root token: {{keys.root_token}}
+              </p>
+
+              <div class="modal-actions">
+                <button {{action "keysViewed" on="click"}}>OK</button>
+              </div>
+            </div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
 </div>

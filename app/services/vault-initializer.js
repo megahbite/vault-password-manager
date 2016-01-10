@@ -1,13 +1,7 @@
 import Ember from 'ember';
-import ENV from 'vault-password-manager/config/environment';
+import VaultApiCall from 'vault-password-manager/services/vault-api-call';
 
-export default Ember.Service.extend({
-  vaultHost: ENV.APP.vaultHost,
-  vaultAPIVersion: ENV.APP.vaultAPIVersion,
-  apiPath: Ember.computed('vaultHost', 'vaultAPIVersion', function() {
-    return `${this.get('vaultHost')}/${this.get('vaultAPIVersion')}/`;
-  }),
-
+export default VaultApiCall.extend({
   isInitialized: function() {
     return Ember.$.getJSON(`${this.get('apiPath')}sys/init`).then(function(response) {
       return response.initialized;

@@ -2,6 +2,12 @@
   <div class="vault-initializer">
     <h3>Initialize the Vault</h3>
 
+    {{#if error}}
+      <div class="flash-error">
+        {{error}}
+      </div>
+    {{/if}}
+
     <div class="parameter">
       <label>
         Secret shares
@@ -19,11 +25,5 @@
     <div>
       {{input type="submit" value="Initialize"}}
     </div>
-
-    {{#if error}}
-      <div class="error">
-        {{error}}
-      </div>
-    {{/if}}
   </div>
 </form>

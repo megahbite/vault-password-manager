@@ -2,7 +2,7 @@
   @include display(flex);
   @include flex-direction(column);
   @include align-items(center);
-  height: 20em;
+  height: 100vh;
   @include justify-content(center);
 
   .parameter {

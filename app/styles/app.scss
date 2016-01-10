@@ -1,4 +1,7 @@
+@import 'normalize';
 @import 'bourbon/bourbon';
 @import 'base';
 
+@import 'components/flash';
+@import 'components/modal';
 @import 'components/vault-initializer';

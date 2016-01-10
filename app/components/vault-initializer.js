@@ -8,11 +8,11 @@ export default Ember.Component.extend({
     initializeVault() {
       var component = this;
       component.get('vaultInitializer').initialize(component.get('shares'), component.get('threshold')).then(
-        function() {
-          component.get('onInitialize')();
+        function(response) {
+          component.get('onInitialize')(response);
         },
         function(response) {
-          component.set('error', response.responseText);
+          component.set('error', response.responseJSON.errors.join('<br />'));
         }
       );
     }
