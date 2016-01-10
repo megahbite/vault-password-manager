@@ -12,7 +12,7 @@ export default Ember.Component.extend({
           component.get('onInitialize')(response);
         },
         function(response) {
-          component.set('error', response.responseJSON.errors.join('<br />'));
+          component.set('error', response.responseJSON.errors.join('<br>'));
         }
       );
     }
