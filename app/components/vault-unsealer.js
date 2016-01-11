@@ -6,14 +6,30 @@ export default Ember.Component.extend({
     unsealVault() {
       var component = this;
       component.get('vaultUnsealer').unseal(component.get('key')).then(
-        function() {},
+        function(response) {
+          if (response.sealed) {
+            component.set('threshold', response.t);
+            component.set('progress', response.progress);
+          } else {
+            component.get('onUnseal')();
+          }
+        },
         function(response) {
           component.set('error', response.responseJSON.errors.join('<br>'));
         }
       );
     },
     resetUnseal() {
-      debugger;
+      var component = this;
+      component.get('vaultUnsealer').resetUnseal().then(
+        function(response) {
+          component.set('threshold', response.t);
+          component.set('progress', response.progress);
+        },
+        function(response) {
+          component.set('error', response.responseJSON.errors.join('<br>'));
+        }
+      );
     }
   }
 });

@@ -9,12 +9,9 @@ export default VaultApiCall.extend({
   },
 
   initialize: function(shares, threshold) {
-    return Ember.$.ajax(`${this.get('apiPath')}sys/init`, {
-      data: JSON.stringify({'secret_shares': Number(shares), 'secret_threshold': Number(threshold)}),
-      dataType: 'json',
-      method: 'put',
-      contentType: 'application/json',
-      processData: false
+    return this.get('apiCall')(`${this.get('apiPath')}sys/init`, {
+      'secret_shares': Number(shares),
+      'secret_threshold': Number(threshold)
     });
   }
 });

@@ -6,12 +6,10 @@ export default VaultApiCall.extend({
     return Ember.$.getJSON(this.get('apiPath') + 'sys/seal-status');
   },
   unseal(key) {
-    return Ember.$.ajax(`${this.get('apiPath')}sys/unseal`, {
-      data: JSON.stringify({key: key}),
-      dataType: 'json',
-      method: 'put',
-      contentType: 'application/json',
-      processData: false
-    });
+    return this.get('apiCall')(`${this.get('apiPath')}sys/unseal`, {key: key});
+  },
+  resetUnseal() {
+    /* This won't work until https://github.com/hashicorp/vault/issues/920 is fixed */
+    //return this.get('apiCall')(`${this.get('apiPath')}sys/unseal`, {reset: true});
   }
 });
