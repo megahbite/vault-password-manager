@@ -1,7 +1,6 @@
 # Vault-password-manager
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Vault Password Manager is a web app for storing and retrieving secrets from [Vault](https://www.vaultproject.io). It is built using Ember.js
 
 ## Prerequisites
 
@@ -12,6 +11,8 @@ You will need the following things properly installed on your computer.
 * [Bower](http://bower.io/)
 * [Ember CLI](http://www.ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
+* [Vault](https://www.vaultproject.io)
+* [CORS-proxy](https://github.com/gr2m/CORS-Proxy) (or similar)
 
 ## Installation
 
@@ -19,10 +20,13 @@ You will need the following things properly installed on your computer.
 * change into the new directory
 * `npm install`
 * `bower install`
+* configure `config/enviornment.js`
 
 ## Running / Development
 
 * `ember server`
+* `vault server`
+* `corsproxy`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Code Generators
