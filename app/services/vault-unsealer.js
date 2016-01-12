@@ -9,7 +9,6 @@ export default VaultApiCall.extend({
     return this.get('apiCall')(`${this.get('apiPath')}sys/unseal`, {key: key});
   },
   resetUnseal() {
-    /* This won't work until https://github.com/hashicorp/vault/issues/920 is fixed */
-    //return this.get('apiCall')(`${this.get('apiPath')}sys/unseal`, {reset: true});
+    return this.get('apiCall')(`${this.get('apiPath')}sys/unseal`, {reset: true});
   }
 });
