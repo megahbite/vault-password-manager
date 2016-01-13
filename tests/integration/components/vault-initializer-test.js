@@ -1,25 +1,35 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import Ember from 'ember';
 
-moduleForComponent('vault-initializer', 'Integration | Component | vault initializer', {
-  integration: true
+var mockInitializerService = Ember.Service.extend({
+  initialize() {
+    return new Ember.RSVP.Promise(function (resolve) {
+      resolve('test');
+    });
+  }
 });
 
-test('it renders', function(assert) {
-  
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
+moduleForComponent('vault-initializer', 'Integration | Component | vault initializer', {
+  integration: true,
 
-  this.render(hbs`{{vault-initializer}}`);
+  beforeEach() {
+    this.registry.register('service:vault-initializer', mockInitializerService);
+  }
+});
 
-  assert.equal(this.$().text().trim(), '');
+test('it renders errors', function(assert) {
+  this.set('error', 'This is an error');
 
-  // Template block usage:" + EOL +
-  this.render(hbs`
-    {{#vault-initializer}}
-      template block text
-    {{/vault-initializer}}
-  `);
+  this.render(hbs`{{vault-initializer error=error}}`);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('.flash-error').text().trim(), 'This is an error');
+});
+
+test('it calls the onInitialize callback', function(assert) {
+  this.set('callback', function(response) { assert.equal(response, 'test'); });
+
+  this.render(hbs`{{vault-initializer onInitialize=(action callback)}}`);
+
+  this.$('input[type=submit]').click();
 });

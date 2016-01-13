@@ -5,21 +5,10 @@ moduleForComponent('vault-unsealer', 'Integration | Component | vault unsealer',
   integration: true
 });
 
-test('it renders', function(assert) {
-  
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
+test('it renders errors', function(assert) {
+  this.set('error', 'This is an error');
 
-  this.render(hbs`{{vault-unsealer}}`);
+  this.render(hbs`{{vault-unsealer error=error}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:" + EOL +
-  this.render(hbs`
-    {{#vault-unsealer}}
-      template block text
-    {{/vault-unsealer}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('.flash-error').text().trim(), 'This is an error');
 });
