@@ -8,8 +8,8 @@
       </div>
     {{/if}}
 
-    <p>{{progress}} keys have been provided.</p>
-    <p>{{threshold}} keys are needed to unlock.</p>
+    <p class="unlock-progress">{{progress}} keys have been provided.</p>
+    <p class="unlock-threshold">{{threshold}} keys are needed to unlock.</p>
 
     <div class="parameter">
       <label>
@@ -19,7 +19,7 @@
     </div>
 
     <div>
-      <button {{action "resetUnseal" on="click"}}>Reset Unseal Process</button>
+      <button class="reset-button" {{action "resetUnseal" on="click"}}>Reset Unseal Process</button>
       {{input type="submit" value="Unseal"}}
     </div>
   </div>
