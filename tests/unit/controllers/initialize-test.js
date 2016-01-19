@@ -31,7 +31,7 @@ test('calling didInitialize sets the keys property', function(assert) {
 test('calling keysViewed sets the session correctly', function(assert) {
   assert.expect(4);
   let ctx = this.subject();
-  ctx.transitionToRoute = Ember.K;
+  ctx.transitionToRoute = Ember.K; // Stub the route transition function
   ctx.set('keys', {root_token: 'abc123'});
   assert.ok(typeof ctx.get('session').get('token') === 'undefined', "token isn't set");
   assert.ok(typeof ctx.get('session').get('isRoot') === 'undefined', "isRoot isn't set");
