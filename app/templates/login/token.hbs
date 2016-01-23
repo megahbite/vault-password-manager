@@ -1,0 +1,12 @@
+{{#if error}}
+  <div class="flash-error">
+    {{error}}
+  </div>
+{{/if}}
+
+<form {{action 'loginToken' on='submit'}}>
+  <label for="token-input">Token</label>
+  {{input type='text' value=token class="token-input"}}
+
+  {{input type='submit' value='Log in'}}
+</form>

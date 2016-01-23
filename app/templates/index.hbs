@@ -1,1 +1,11 @@
-{{outlet}}
+{{#if session.isAuthenticated }}
+  {{#if session.data.isRoot }}
+    <div class="flash-alert">You are currently authenticated as root.</div>
+  {{/if}}
+{{/if}}
+
+{{#if session.isAuthenticated }}
+  <a {{action 'invalidateSession'}}>Log out</a>
+{{else}}
+  {{#link-to 'login'}}Log in{{/link-to}}
+{{/if}}

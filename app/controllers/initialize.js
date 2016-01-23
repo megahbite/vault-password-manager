@@ -9,7 +9,8 @@ export default Ember.Controller.extend({
       Ember.$('body').addClass('modal-open');
     },
     keysViewed() {
-      this.get('session').authenticate('authenticator:root-token', this.get('keys').root_token);
+      this.get('session').authenticate('authenticator:token', { token: this.get('keys').root_token });
+      this.get('session').set('data.isRoot', true);
       this.transitionToRoute('unseal');
     }
   }

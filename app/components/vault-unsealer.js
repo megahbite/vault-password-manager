@@ -17,7 +17,9 @@ export default Ember.Component.extend({
         function(response) {
           component.set('error', response.responseJSON.errors.join('<br>'));
         }
-      );
+      ).finally(function() {
+        component.set('key', '');
+      });
     },
     resetUnseal() {
       var component = this;

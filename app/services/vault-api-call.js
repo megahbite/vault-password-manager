@@ -8,13 +8,52 @@ export default Ember.Service.extend({
   apiPath: Ember.computed('vaultHost', 'vaultAPIVersion', function() {
     return `${this.get('vaultHost')}/${this.get('vaultAPIVersion')}/`;
   }),
-  apiCall(endpoint, data) {
-    return Ember.$.ajax(`${endpoint}`, {
-      data: JSON.stringify(data),
-      dataType: 'json',
-      method: 'put',
-      contentType: 'application/json',
-      processData: false
+  apiPut(endpoint, data) {
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      Ember.$.ajax(`${endpoint}`, {
+        data: JSON.stringify(data),
+        dataType: 'json',
+        method: 'put',
+        contentType: 'application/json',
+        processData: false,
+        success: resolve,
+        error: reject
+      });
+    });
+  },
+  authorizedApiPut(endpoint, data, session) {
+    let headers = {};
+    session.authorize('authorizer:vault-api-auth', (headerName, headerValue) => {
+      headers[headerName] = headerValue;
+    });
+
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      Ember.$.ajax(`${endpoint}`, {
+        data: JSON.stringify(data),
+        dataType: 'json',
+        method: 'put',
+        contentType: 'application/json',
+        processData: false,
+        success: resolve,
+        error: reject,
+        headers: headers
+      });
+    });
+  },
+  authorizedApiGet(endpoint, session) {
+    let headers = {};
+    session.authorize('authorizer:vault-api-auth', (headerName, headerValue) => {
+      headers[headerName] = headerValue;
+    });
+
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      Ember.$.ajax(`${endpoint}`, {
+        dataType: 'json',
+        method: 'get',
+        success: resolve,
+        error: reject,
+        headers: headers
+      });
     });
   }
 });

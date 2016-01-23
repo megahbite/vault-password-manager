@@ -8,6 +8,9 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('initialize');
   this.route('unseal');
+  this.route('login', function() {
+    this.route('token');
+  });
 });
 
 export default Router;

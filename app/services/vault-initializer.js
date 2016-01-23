@@ -9,7 +9,7 @@ export default VaultApiCall.extend({
   },
 
   initialize: function(shares, threshold) {
-    return this.get('apiCall')(`${this.get('apiPath')}sys/init`, {
+    return this.get('apiPut')(`${this.get('apiPath')}sys/init`, {
       'secret_shares': Number(shares),
       'secret_threshold': Number(threshold)
     });

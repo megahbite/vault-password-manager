@@ -6,9 +6,9 @@ export default VaultApiCall.extend({
     return Ember.$.getJSON(this.get('apiPath') + 'sys/seal-status');
   },
   unseal(key) {
-    return this.get('apiCall')(`${this.get('apiPath')}sys/unseal`, {key: key});
+    return this.get('apiPut')(`${this.get('apiPath')}sys/unseal`, {key: key});
   },
   resetUnseal() {
-    return this.get('apiCall')(`${this.get('apiPath')}sys/unseal`, {reset: true});
+    return this.get('apiPut')(`${this.get('apiPath')}sys/unseal`, {reset: true});
   }
 });

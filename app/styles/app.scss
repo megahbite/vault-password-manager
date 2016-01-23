@@ -2,6 +2,7 @@
 @import 'bourbon/bourbon';
 @import 'base';
 
+@import 'components/auth-backends';
 @import 'components/flash';
 @import 'components/modal';
 @import 'components/vault-initializer';
