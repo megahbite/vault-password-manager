@@ -12,4 +12,17 @@
       width: 100%;
     }
   }
+
+  .fadein {
+    @include keyframes( fadeIn ) {
+      from {
+        color: adjust-color($action-color, $alpha: -0.7);
+      }
+      to {
+        color: $action-color;
+      }
+    }
+
+    @include animation( fadeIn 1.0s ease-in );
+  }
 }

@@ -2,6 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   vaultUnsealer: Ember.inject.service('vaultUnsealer'),
+  progressChanged: Ember.observer('progress', () => {
+    Ember.$('.unlock-progress').addClass('fadein');
+    Ember.$(document).one('animationend', '.fadein', () => {
+      Ember.$('.unlock-progress').removeClass('fadein');
+    });
+  }),
   actions: {
     unsealVault() {
       var component = this;
