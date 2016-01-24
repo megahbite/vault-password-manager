@@ -6,6 +6,8 @@
 
 {{#if session.isAuthenticated }}
   <a {{action 'invalidateSession'}}>Log out</a>
+
+  {{user-dashboard onVaultSealed=(action 'vaultSealed')}}
 {{else}}
   {{#link-to 'login'}}Log in{{/link-to}}
 {{/if}}

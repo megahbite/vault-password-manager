@@ -9,7 +9,6 @@ export default Ember.Mixin.create({
     mixin.get('vaultInitializer').isInitialized().then(function(state) {
       if (state) {
         mixin.get('vaultUnsealer').sealStatus().then(function(seal_state) {
-          Ember.Logger.log('Is the vault sealed?', seal_state.sealed);
           if (seal_state.sealed) {
             mixin.transitionTo('unseal');
           }
