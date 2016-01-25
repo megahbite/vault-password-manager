@@ -1,1 +1,9 @@
+{{navigation-menu}}
+
+{{#if session.isAuthenticated }}
+  {{#if session.data.isRoot }}
+    <div class="flash-alert">You are currently authenticated as root.</div>
+  {{/if}}
+{{/if}}
+
 {{outlet}}

@@ -34,7 +34,8 @@ module.exports = function(environment) {
     ENV.APP.vaultHost = 'http://localhost:1337/127.0.0.1:8200';
     ENV.contentSecurityPolicy = {
       'connect-src': ["'self'", "http://localhost:1337"],
-      'script-src': ["'self'", "http://localhost:1337"]
+      'script-src': ["'self'", "http://localhost:1337"],
+      'style-src': ["'self'", "'unsafe-inline'"],
     };
   }
 
