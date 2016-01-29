@@ -20,9 +20,12 @@ module.exports = function(environment) {
       vaultAPIVersion: 'v1'
     },
 
-    // contentSecurityPolicy: {
-    //   'connect-src': ["'self'", "https://127.0.0.1:8200"]
-    // }
+    contentSecurityPolicy: {
+      'connect-src': ["'self'", "https://127.0.0.1:8200"],
+      'script-src': ["'self'", "https://127.0.0.1:8200"],
+      'style-src': ["'self'", "'unsafe-inline'", "http://fonts.googleapis.com"],
+      'font-src': ["'self'", "http://fonts.gstatic.com"]
+    }
   };
 
   if (environment === 'development') {
@@ -35,7 +38,8 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy = {
       'connect-src': ["'self'", "http://localhost:1337"],
       'script-src': ["'self'", "http://localhost:1337"],
-      'style-src': ["'self'", "'unsafe-inline'"],
+      'style-src': ["'self'", "'unsafe-inline'", "http://fonts.googleapis.com"],
+      'font-src': ["'self'", "http://fonts.gstatic.com"]
     };
   }
 

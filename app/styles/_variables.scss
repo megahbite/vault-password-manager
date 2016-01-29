@@ -1,5 +1,8 @@
+$sans-serif: 'PT Sans', sans-serif;
+$sans-serif-2: 'Titillium Web', sans-serif;
+
 // Typography
-$base-font-family: $helvetica;
+$base-font-family: $sans-serif;
 $heading-font-family: $base-font-family;
 
 // Font Sizes
@@ -40,3 +43,6 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $l
 // Animations
 $base-duration: 150ms;
 $base-timing: ease;
+
+// Responsive breakpoints
+$medium-screen: em(640);

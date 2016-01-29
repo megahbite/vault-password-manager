@@ -13,6 +13,7 @@ Router.map(function() {
   });
   this.route('secrets', function() {
     this.route('show', {path: '/:key'});
+    this.route('create');
   });
 });
 

@@ -7,7 +7,7 @@
 
   padding: 1em 0;
 
-  background-color: $medium-gray;
+  background-color: $dark-gray;
 
 
 // Mobile view
@@ -69,6 +69,7 @@
     a {
       display: inline-block;
       cursor: pointer;
+      color: $light-gray;
     }
 
     &:last-child a {
