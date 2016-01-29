@@ -12,8 +12,8 @@ Router.map(function() {
     this.route('token');
   });
   this.route('secrets', function() {
+    this.route('new');
     this.route('show', {path: '/:key'});
-    this.route('create');
   });
 });
 
