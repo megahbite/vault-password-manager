@@ -43,7 +43,7 @@ test('it renders errors', function(assert) {
 });
 
 test('it tries to unseal the sealed vault', function (assert) {
-  this.registry.register('service:vault-unsealer', mockSealedUnsealerService);
+  this.register('service:vault-unsealer', mockSealedUnsealerService);
 
   this.render(hbs`{{vault-unsealer}}`);
 
@@ -55,7 +55,7 @@ test('it tries to unseal the sealed vault', function (assert) {
 
 test('it calls back to the controller when unsealed', function(assert) {
   assert.expect(1);
-  this.registry.register('service:vault-unsealer', mockUnsealedUnsealerService);
+  this.register('service:vault-unsealer', mockUnsealedUnsealerService);
 
   this.set('callback', function() { assert.ok(true); });
 
@@ -65,7 +65,7 @@ test('it calls back to the controller when unsealed', function(assert) {
 });
 
 test('it tries to reset the vault', function(assert) {
-  this.registry.register('service:vault-unsealer', mockSealedUnsealerService);
+  this.register('service:vault-unsealer', mockSealedUnsealerService);
 
   this.render(hbs`{{vault-unsealer}}`);
 

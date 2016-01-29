@@ -14,7 +14,7 @@ moduleForComponent('vault-initializer', 'Integration | Component | vault initial
   integration: true,
 
   beforeEach() {
-    this.registry.register('service:vault-initializer', mockInitializerService);
+    this.register('service:vault-initializer', mockInitializerService);
   }
 });
 

@@ -13,7 +13,7 @@ moduleForComponent('user-dashboard', 'Integration | Component | user dashboard',
 });
 
 test('it seals the vault', function(assert) {
-  this.registry.register('service:vault-unsealer', mockUnsealService);
+  this.register('service:vault-unsealer', mockUnsealService);
   assert.expect(1);
   this.set('callback', () => { assert.ok(true); });
 
