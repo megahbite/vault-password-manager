@@ -8,5 +8,8 @@ export default VaultApiCall.extend({
   },
   getSecret(key) {
     return this.get('authorizedApiGet')(`${this.get('apiPath')}secret/${key}`, this.get('session'));
+  },
+  postSecret(key, data) {
+    return this.get('authorizedApiPut')(`${this.get('apiPath')}secret/${key}`, data, this.get('session'));
   }
 });
