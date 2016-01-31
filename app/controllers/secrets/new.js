@@ -1,4 +1,5 @@
 import Ember from 'ember';
+const { getOwner } = Ember;
 
 export default Ember.Controller.extend({
   vaultSecrets: Ember.inject.service(),
@@ -12,7 +13,7 @@ export default Ember.Controller.extend({
         password: this.get('password')
       };
       this.get('vaultSecrets').postSecret(key, data).then(() => {
-        let route = this.container.lookup("route:secrets");
+        let route = getOwner(this).lookup("route:secrets");
         route.refresh();
         this.transitionToRoute('secrets');
       }, (response) => {

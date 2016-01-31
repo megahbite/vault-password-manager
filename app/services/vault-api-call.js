@@ -55,5 +55,21 @@ export default Ember.Service.extend({
         headers: headers
       });
     });
+  },
+  authorizedApiDelete(endpoint, session) {
+    let headers = {};
+    session.authorize('authorizer:vault-api-auth', (headerName, headerValue) => {
+      headers[headerName] = headerValue;
+    });
+
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      Ember.$.ajax(`${endpoint}`, {
+        dataType: 'json',
+        method: 'delete',
+        success: resolve,
+        error: reject,
+        headers: headers
+      });
+    });
   }
 });

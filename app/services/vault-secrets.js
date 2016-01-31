@@ -11,5 +11,8 @@ export default VaultApiCall.extend({
   },
   postSecret(key, data) {
     return this.get('authorizedApiPut')(`${this.get('apiPath')}secret/${key}`, data, this.get('session'));
+  },
+  deleteSecret(key) {
+    return this.get('authorizedApiDelete')(`${this.get('apiPath')}secret/${key}`, this.get('session'));
   }
 });
