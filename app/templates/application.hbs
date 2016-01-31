@@ -1,4 +1,4 @@
-{{navigation-menu}}
+{{navigation-menu onLogout=(action 'loggedOut')}}
 
 {{#if session.isAuthenticated }}
   {{#if session.data.isRoot }}

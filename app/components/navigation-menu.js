@@ -22,6 +22,7 @@ export default Ember.Component.extend({
     },
     invalidateSession() {
       this.get('session').invalidate();
+      this.get('onLogout')();
     },
   }
 });
