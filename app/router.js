@@ -15,6 +15,7 @@ Router.map(function() {
     this.route('new');
     this.route('show', {path: '/:key'});
   });
+  this.route('users');
 });
 
 export default Router;
