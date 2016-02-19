@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('unseal');
   this.route('login', function() {
     this.route('token');
+    this.route('userpass');
   });
   this.route('secrets', function() {
     this.route('new');

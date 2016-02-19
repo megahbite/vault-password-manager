@@ -1,7 +1,13 @@
 <div class="auth-backends">
-  <div class="auth-backend">
-    {{#link-to 'login.token'}}Log in with a client token{{/link-to}}
-  </div>
+  <h2>Log in with:</h2>
+  <ul>
+    <li class="auth-backend">
+      {{#link-to 'login.userpass'}}A username and password{{/link-to}}
+    </li>
+    <li class="auth-backend">
+      {{#link-to 'login.token'}}A client token{{/link-to}}
+    </li>
+  </ul>
 </div>
 
 {{outlet}}
